@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Hopewell</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f1117;
+            color: #e5e7eb;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 4rem 1.5rem;
+        }
+        .container { max-width: 640px; width: 100%; }
+        .header { margin-bottom: 3rem; }
+        .name {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #f9fafb;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.75rem;
+        }
+        .tagline {
+            font-size: 1.125rem;
+            color: #9ca3af;
+            line-height: 1.6;
+        }
+        .section { margin-bottom: 2.5rem; }
+        .section-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+        .section-body {
+            color: #d1d5db;
+            line-height: 1.75;
+            font-size: 1rem;
+        }
+        .links { list-style: none; }
+        .links li { margin-bottom: 0.75rem; }
+        .links a {
+            color: #60a5fa;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.15s;
+        }
+        .links a:hover { color: #93bbfc; }
+        .links .desc {
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin-left: 0.25rem;
+        }
+        .contact-email {
+            display: inline-block;
+            color: #f9fafb;
+            background: #1f2937;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.95rem;
+            border: 1px solid #374151;
+        }
+        .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 6px;
+            position: relative;
+            top: -1px;
+        }
+        .dot-green { background: #22c55e; }
+        .dot-amber { background: #f59e0b; }
+        .dot-blue { background: #3b82f6; }
+        .footer {
+            margin-top: 4rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #1f2937;
+            color: #4b5563;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="name">
+                <span class="dot dot-green"></span>
+                <span class="dot dot-amber"></span>
+                <span class="dot dot-blue"></span>
+                Alex Hopewell
+            </div>
+            <div class="tagline">
+                Indie software developer building autonomous delivery systems.
+                Writing about what happens when you treat AI as pipeline infrastructure
+                rather than a coding assistant.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Currently</div>
+            <div class="section-body">
+                Building a software factory that takes product ideas from research
+                through development to release using autonomous AI agents,
+                pipeline orchestration, and human decision gates at the points
+                that matter. One developer. Multiple products. Days, not months.
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Writing</div>
+            <ul class="links">
+                <li>
+                    <a href="#">I Built an Autonomous Software Factory in a Week</a>
+                    <span class="desc">-- the journey and the stack</span>
+                </li>
+                <li>
+                    <a href="#">First Version in Days, Not Months</a>
+                    <span class="desc">-- speed, iteration, and the new bottleneck</span>
+                </li>
+                <li>
+                    <a href="#">The Three Roles That Survive the AI Transition</a>
+                    <span class="desc">-- what lives, what dies, what adapts</span>
+                </li>
+                <li>
+                    <a href="#">AI Code Is the New Binary</a>
+                    <span class="desc">-- pipeline orchestration and why you should stop reading every line</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Open Source</div>
+            <ul class="links">
+                <li>
+                    <a href="https://github.com/alexhopewell/beads-fleet">beads-fleet</a>
+                    <span class="desc">-- dashboard with pipeline orchestration for the Beads issue tracker (MIT)</span>
+                </li>
+                <li>
+                    <a href="https://github.com/steveyegge/beads">Beads</a>
+                    <span class="desc">-- git-backed issue tracker by Steve Yegge</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Contact</div>
+            <div class="section-body">
+                <span class="contact-email">alexhopewell@proton.me</span>
+                <p style="margin-top: 1rem; color: #6b7280; font-size: 0.875rem;">
+                    Alex Hopewell is a pseudonym. Happy to share more in direct conversation.
+                </p>
+            </div>
+        </div>
+
+        <div class="footer">
+            Built with pipeline orchestration and a healthy disregard for the old way of doing things.
+        </div>
+    </div>
+</body>
+</html>
