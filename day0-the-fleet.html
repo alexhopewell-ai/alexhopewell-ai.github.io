@@ -225,6 +225,12 @@
             <p>I built an autonomous software shipyard — a system where AI agents build entire products while I make the strategic decisions. The shipyard has its own language, borrowed from naval architecture, because every term maps directly to a real stage, role, or artefact in the system.</p>
             <p>If you understand the language, you understand the shipyard. This is the guide.</p>
 
+            <p>The whole system runs on <a href="https://github.com/alexhopewell-ai/beads-fleet">beads-fleet</a>, a dashboard I built on top of <a href="https://github.com/steveyegge/beads">Beads</a> — Steve Yegge's git-backed issue tracker. The fleet board is the control surface: every ship in the fleet is a card, every column is a stage in the voyage, and the buttons on each card trigger autonomous AI agents or advance the ship to its next stage.</p>
+            <figure>
+                <img src="fleet-board.png" alt="The fleet board in beads-fleet, showing ships at various stages of the voyage — from Candidates through In Research, Research Complete, Building, Prepare for Launch, Launched, and Deployed" style="width: 100%; border-radius: 8px; border: 1px solid #374151; margin-top: 0.5rem;">
+                <figcaption style="color: #6b7280; font-size: 0.8rem; margin-top: 0.5rem; font-style: italic;">The fleet board — each column is a voyage stage, each card is a ship moving through the shipyard.</figcaption>
+            </figure>
+
             <h2>The Harbourmaster</h2>
             <p>The harbourmaster oversees the entire fleet. I decide which ideas deserve investigation, whether the recon brief justifies construction, whether the built product passes sea trials, and when a ship is ready to launch.</p>
             <p>In a traditional team, this role would be split across a product manager, a tech lead, a QA lead, and a project manager. In the shipyard, it is one person — because the AI handles the execution and the pipeline handles the coordination. The harbourmaster's job is judgment: product judgment, quality judgment, and architectural judgment.</p>
@@ -238,15 +244,15 @@
                         <tr><th>Stage</th><th>What Happens</th><th>Who Acts</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td><strong>Harbour</strong></td><td>Ideas wait. A title, a paragraph, a seed.</td><td>Harbourmaster creates the epic</td></tr>
-                        <tr><td><strong>Recon</strong></td><td>The scout investigates — market research, competitors, positioning.</td><td>AI agent (autonomous)</td></tr>
-                        <tr><td><strong>Charted</strong></td><td>Recon brief ready. First human decision gate.</td><td>Harbourmaster reviews and decides</td></tr>
-                        <tr><td><strong>Under Construction</strong></td><td>The build crew implements the product from the recon brief.</td><td>AI agent (autonomous)</td></tr>
-                        <tr><td><strong>Sea Trials</strong></td><td>The harbourmaster tests the built product. Second human decision gate.</td><td>Harbourmaster evaluates quality</td></tr>
+                        <tr><td><strong>Candidates</strong></td><td>Ideas wait. A title, a paragraph, a seed.</td><td>Harbourmaster creates the epic</td></tr>
+                        <tr><td><strong>In Research</strong></td><td>The scout investigates — market research, competitors, positioning.</td><td>AI agent (autonomous)</td></tr>
+                        <tr><td><strong>Research Complete</strong></td><td>Recon brief ready. First human decision gate.</td><td>Harbourmaster reviews and decides</td></tr>
+                        <tr><td><strong>Building</strong></td><td>The build crew implements the product from the recon brief.</td><td>AI agent (autonomous)</td></tr>
+                        <tr><td><strong>Prepare for Launch</strong></td><td>The harbourmaster tests the built product. Second human decision gate.</td><td>Harbourmaster evaluates quality</td></tr>
                         <tr><td><strong>Launched</strong></td><td>The launch crew prepares release materials.</td><td>AI agent + harbourmaster ships</td></tr>
                         <tr><td><strong>Refit</strong></td><td>Post-launch analysis extracts patterns back into shared stores.</td><td>AI agent (autonomous)</td></tr>
                         <tr><td><strong>Deployed</strong></td><td>Live and complete. The voyage is finished.</td><td>--</td></tr>
-                        <tr><td><strong>Scuttled</strong></td><td>Investigated and deliberately abandoned. A record of good judgment.</td><td>Harbourmaster decides</td></tr>
+                        <tr><td><strong>Abandoned</strong></td><td>Investigated and deliberately abandoned. A record of good judgment.</td><td>Harbourmaster decides</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -265,15 +271,15 @@
                         <tr><td><strong>Fleet board</strong></td><td>The visual kanban showing all ships and their current stage</td></tr>
                         <tr><td><strong>Ship</strong></td><td>A product moving through the voyage</td></tr>
                         <tr><td><strong>Fleet card</strong></td><td>A ship's card on the fleet board, showing progress, priority, cost, and actions</td></tr>
-                        <tr><td><strong>Harbour</strong></td><td>Where ideas wait before investigation</td></tr>
-                        <tr><td><strong>Recon</strong></td><td>Market research and feasibility investigation</td></tr>
-                        <tr><td><strong>Charted</strong></td><td>Recon complete, awaiting the harbourmaster's decision</td></tr>
-                        <tr><td><strong>Under Construction</strong></td><td>Active development by the build crew</td></tr>
-                        <tr><td><strong>Sea Trials</strong></td><td>Testing and quality evaluation by the harbourmaster</td></tr>
+                        <tr><td><strong>Candidates</strong></td><td>Where ideas wait before investigation</td></tr>
+                        <tr><td><strong>In Research</strong></td><td>Market research and feasibility investigation</td></tr>
+                        <tr><td><strong>Research Complete</strong></td><td>Recon complete, awaiting the harbourmaster's decision</td></tr>
+                        <tr><td><strong>Building</strong></td><td>Active development by the build crew</td></tr>
+                        <tr><td><strong>Prepare for Launch</strong></td><td>Testing and quality evaluation by the harbourmaster</td></tr>
                         <tr><td><strong>Launched</strong></td><td>Release preparation and deployment</td></tr>
                         <tr><td><strong>Refit</strong></td><td>Post-launch pattern extraction back into shared stores</td></tr>
                         <tr><td><strong>Deployed</strong></td><td>Live and complete</td></tr>
-                        <tr><td><strong>Scuttled</strong></td><td>Idea investigated and deliberately abandoned</td></tr>
+                        <tr><td><strong>Abandoned</strong></td><td>Idea investigated and deliberately abandoned</td></tr>
                         <tr><td><strong>Scout</strong></td><td>The recon agent — conducts market research</td></tr>
                         <tr><td><strong>Build crew</strong></td><td>The development agent — implements the product</td></tr>
                         <tr><td><strong>Launch crew</strong></td><td>The release agent — prepares store metadata and release materials</td></tr>
