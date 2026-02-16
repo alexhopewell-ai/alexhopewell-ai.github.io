@@ -1,65 +1,303 @@
 <!DOCTYPE html>
-<html>
-<head><meta charset="utf-8"><title>Welcome Aboard: A Guide to the Fleet</title></head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Aboard: A Guide to the Fleet</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f1117;
+            color: #e5e7eb;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 4rem 1.5rem;
+        }
+        .container { max-width: 640px; width: 100%; }
+
+        /* Header */
+        .site-header { margin-bottom: 3rem; }
+        .site-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #f9fafb;
+            letter-spacing: -0.3px;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+            transition: color 0.15s;
+        }
+        .site-name:hover { color: #d1d5db; }
+        .dot {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            margin-right: 5px;
+            position: relative;
+            top: -1px;
+        }
+        .dot-green { background: #22c55e; }
+        .dot-amber { background: #f59e0b; }
+        .dot-blue { background: #3b82f6; }
+        .site-tagline {
+            font-size: 0.875rem;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+
+        /* Article title */
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #f9fafb;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Subtitle (h2 immediately after h1) */
+        .subtitle {
+            font-size: 1.125rem;
+            color: #9ca3af;
+            font-weight: 400;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+        }
+
+        /* Horizontal rules */
+        hr {
+            border: none;
+            border-top: 1px solid #1f2937;
+            margin: 2.5rem 0;
+        }
+
+        /* Body text */
+        p {
+            color: #d1d5db;
+            line-height: 1.75;
+            font-size: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Section headings */
+        h2 {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: #f9fafb;
+            letter-spacing: -0.3px;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Tables */
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 1.5rem 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        thead th {
+            background: #1f2937;
+            color: #f9fafb;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border: 1px solid #1f2937;
+        }
+        tbody td {
+            padding: 0.75rem 1rem;
+            border: 1px solid #1f2937;
+            color: #d1d5db;
+            line-height: 1.5;
+            vertical-align: top;
+        }
+        tbody tr:nth-child(odd) { background: #0f1117; }
+        tbody tr:nth-child(even) { background: #161922; }
+        tbody td strong {
+            color: #60a5fa;
+        }
+
+        /* Inline code */
+        code {
+            font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.875em;
+            color: #f9fafb;
+            background: #1f2937;
+            padding: 0.15em 0.4em;
+            border-radius: 4px;
+        }
+
+        /* Block code */
+        pre {
+            background: #1f2937;
+            border: 1px solid #374151;
+            border-radius: 6px;
+            padding: 1rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        pre code {
+            background: none;
+            padding: 0;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        /* Strong and em */
+        strong { color: #f9fafb; }
+        em { color: #9ca3af; font-style: italic; }
+
+        /* Links */
+        a {
+            color: #60a5fa;
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+        a:hover { color: #93bbfc; }
+
+        /* Open source credit */
+        .open-source-credit {
+            color: #6b7280;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+        .open-source-credit a {
+            color: #60a5fa;
+        }
+        .open-source-credit a:hover {
+            color: #93bbfc;
+        }
+
+        /* Bio line */
+        .bio {
+            color: #6b7280;
+            font-size: 0.875rem;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #1f2937;
+        }
+        .footer-back {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        .footer-back a {
+            color: #60a5fa;
+        }
+        .footer-back a:hover {
+            color: #93bbfc;
+        }
+    </style>
+</head>
 <body>
-<h1>Welcome Aboard: A Guide to the Fleet</h1>
-<h2>The naval terminology behind an autonomous software shipyard — and what each term actually means</h2>
-<hr>
-<p>I built an autonomous software shipyard — a system where AI agents build entire products while I make the strategic decisions. The shipyard has its own language, borrowed from naval architecture, because every term maps directly to a real stage, role, or artefact in the system.</p>
-<p>If you understand the language, you understand the shipyard. This is the guide.</p>
-<h2>The Harbourmaster</h2>
-<p>The harbourmaster oversees the entire fleet. I decide which ideas deserve investigation, whether the recon brief justifies construction, whether the built product passes sea trials, and when a ship is ready to launch.</p>
-<p>In a traditional team, this role would be split across a product manager, a tech lead, a QA lead, and a project manager. In the shipyard, it is one person — because the AI handles the execution and the pipeline handles the coordination. The harbourmaster's job is judgment: product judgment, quality judgment, and architectural judgment.</p>
-<p>The harbourmaster does not write code. The harbourmaster decides what gets built, evaluates whether it was built correctly, and defines the standing orders that govern how everything is built. Every ship in the fleet reflects the harbourmaster's taste, standards, and product vision.</p>
-<h2>The Voyage</h2>
-<p>Every product takes a voyage — a journey from initial idea to deployed product. The voyage has nine stages, each represented as a column on the fleet board. Ships move from left to right as they progress.</p>
-<table>
-<tr><th>Stage</th><th>What Happens</th><th>Who Acts</th></tr>
-<tr><td><strong>Harbour</strong></td><td>Ideas wait. A title, a paragraph, a seed.</td><td>Harbourmaster creates the epic</td></tr>
-<tr><td><strong>Recon</strong></td><td>The scout investigates — market research, competitors, positioning.</td><td>AI agent (autonomous)</td></tr>
-<tr><td><strong>Charted</strong></td><td>Recon brief ready. First human decision gate.</td><td>Harbourmaster reviews and decides</td></tr>
-<tr><td><strong>Under Construction</strong></td><td>The build crew implements the product from the recon brief.</td><td>AI agent (autonomous)</td></tr>
-<tr><td><strong>Sea Trials</strong></td><td>The harbourmaster tests the built product. Second human decision gate.</td><td>Harbourmaster evaluates quality</td></tr>
-<tr><td><strong>Launched</strong></td><td>The launch crew prepares release materials.</td><td>AI agent + harbourmaster ships</td></tr>
-<tr><td><strong>Refit</strong></td><td>Post-launch analysis extracts patterns back into shared stores.</td><td>AI agent (autonomous)</td></tr>
-<tr><td><strong>Deployed</strong></td><td>Live and complete. The voyage is finished.</td><td>--</td></tr>
-<tr><td><strong>Scuttled</strong></td><td>Investigated and deliberately abandoned. A record of good judgment.</td><td>Harbourmaster decides</td></tr>
-</table>
-<p>The human decision points sandwich the AI execution stages. Recon runs autonomously, then the harbourmaster evaluates. Construction runs autonomously, then the harbourmaster evaluates. The pattern is: AI executes, human validates. All the way through.</p>
-<h2>The Glossary</h2>
-<table>
-<tr><th>Naval Term</th><th>What It Means</th></tr>
-<tr><td><strong>Shipyard</strong></td><td>The entire autonomous build system</td></tr>
-<tr><td><strong>Harbourmaster</strong></td><td>The human who oversees the fleet — product vision, quality judgment, architectural taste</td></tr>
-<tr><td><strong>Voyage</strong></td><td>The journey from idea to deployed product</td></tr>
-<tr><td><strong>Fleet board</strong></td><td>The visual kanban showing all ships and their current stage</td></tr>
-<tr><td><strong>Ship</strong></td><td>A product moving through the voyage</td></tr>
-<tr><td><strong>Fleet card</strong></td><td>A ship's card on the fleet board, showing progress, priority, cost, and actions</td></tr>
-<tr><td><strong>Harbour</strong></td><td>Where ideas wait before investigation</td></tr>
-<tr><td><strong>Recon</strong></td><td>Market research and feasibility investigation</td></tr>
-<tr><td><strong>Charted</strong></td><td>Recon complete, awaiting the harbourmaster's decision</td></tr>
-<tr><td><strong>Under Construction</strong></td><td>Active development by the build crew</td></tr>
-<tr><td><strong>Sea Trials</strong></td><td>Testing and quality evaluation by the harbourmaster</td></tr>
-<tr><td><strong>Launched</strong></td><td>Release preparation and deployment</td></tr>
-<tr><td><strong>Refit</strong></td><td>Post-launch pattern extraction back into shared stores</td></tr>
-<tr><td><strong>Deployed</strong></td><td>Live and complete</td></tr>
-<tr><td><strong>Scuttled</strong></td><td>Idea investigated and deliberately abandoned</td></tr>
-<tr><td><strong>Scout</strong></td><td>The recon agent — conducts market research</td></tr>
-<tr><td><strong>Build crew</strong></td><td>The development agent — implements the product</td></tr>
-<tr><td><strong>Launch crew</strong></td><td>The release agent — prepares store metadata and release materials</td></tr>
-<tr><td><strong>Standing orders</strong></td><td>The standards documents that govern how every ship is built</td></tr>
-<tr><td><strong>Flagship</strong></td><td>The reference implementation — the first ship, built by hand, that all others follow</td></tr>
-<tr><td><strong>Stores</strong></td><td>Shared component libraries used across all ships</td></tr>
-<tr><td><strong>Recon brief</strong></td><td>The market research report produced by the scout</td></tr>
-<tr><td><strong>Dry dock</strong></td><td>Where a ship returns for repairs after failing sea trials</td></tr>
-<tr><td><strong>Wake</strong></td><td>The phase history dots on a fleet card — the trail showing where a ship has been</td></tr>
-<tr><td><strong>Crew aboard</strong></td><td>An agent is currently running on this ship</td></tr>
-<tr><td><strong>Recall crew</strong></td><td>Stop the running agent</td></tr>
-</table>
-<p>One harbourmaster. An entire fleet. Days, not months.</p>
-<hr>
-<p>The fleet board and pipeline orchestration described in this article is built on <a href="https://github.com/alexhopewell-ai/beads-fleet">beads-fleet</a> (MIT licensed). Special thanks to <a href="https://github.com/steveyegge">Steve Yegge</a> for creating <a href="https://github.com/steveyegge/beads">Beads</a>, the git-backed issue tracker at the foundation of this workflow.</p>
-<hr>
-<p><em>Alex Hopewell (a pseudonym) is an indie software developer building autonomous delivery systems. She writes about the practical reality of AI-assisted development.</em></p>
+    <div class="container">
+        <div class="site-header">
+            <a href="alexhopewell-site/index.html" class="site-name">
+                <span class="dot dot-green"></span>
+                <span class="dot dot-amber"></span>
+                <span class="dot dot-blue"></span>
+                Alex Hopewell
+            </a>
+            <div class="site-tagline">Writing about autonomous software delivery</div>
+        </div>
+
+        <article>
+            <h1>Welcome Aboard: A Guide to the Fleet</h1>
+            <div class="subtitle">The naval terminology behind an autonomous software shipyard — and what each term actually means</div>
+            <hr>
+            <p>I built an autonomous software shipyard — a system where AI agents build entire products while I make the strategic decisions. The shipyard has its own language, borrowed from naval architecture, because every term maps directly to a real stage, role, or artefact in the system.</p>
+            <p>If you understand the language, you understand the shipyard. This is the guide.</p>
+
+            <h2>The Harbourmaster</h2>
+            <p>The harbourmaster oversees the entire fleet. I decide which ideas deserve investigation, whether the recon brief justifies construction, whether the built product passes sea trials, and when a ship is ready to launch.</p>
+            <p>In a traditional team, this role would be split across a product manager, a tech lead, a QA lead, and a project manager. In the shipyard, it is one person — because the AI handles the execution and the pipeline handles the coordination. The harbourmaster's job is judgment: product judgment, quality judgment, and architectural judgment.</p>
+            <p>The harbourmaster does not write code. The harbourmaster decides what gets built, evaluates whether it was built correctly, and defines the standing orders that govern how everything is built. Every ship in the fleet reflects the harbourmaster's taste, standards, and product vision.</p>
+
+            <h2>The Voyage</h2>
+            <p>Every product takes a voyage — a journey from initial idea to deployed product. The voyage has nine stages, each represented as a column on the fleet board. Ships move from left to right as they progress.</p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>Stage</th><th>What Happens</th><th>Who Acts</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Harbour</strong></td><td>Ideas wait. A title, a paragraph, a seed.</td><td>Harbourmaster creates the epic</td></tr>
+                        <tr><td><strong>Recon</strong></td><td>The scout investigates — market research, competitors, positioning.</td><td>AI agent (autonomous)</td></tr>
+                        <tr><td><strong>Charted</strong></td><td>Recon brief ready. First human decision gate.</td><td>Harbourmaster reviews and decides</td></tr>
+                        <tr><td><strong>Under Construction</strong></td><td>The build crew implements the product from the recon brief.</td><td>AI agent (autonomous)</td></tr>
+                        <tr><td><strong>Sea Trials</strong></td><td>The harbourmaster tests the built product. Second human decision gate.</td><td>Harbourmaster evaluates quality</td></tr>
+                        <tr><td><strong>Launched</strong></td><td>The launch crew prepares release materials.</td><td>AI agent + harbourmaster ships</td></tr>
+                        <tr><td><strong>Refit</strong></td><td>Post-launch analysis extracts patterns back into shared stores.</td><td>AI agent (autonomous)</td></tr>
+                        <tr><td><strong>Deployed</strong></td><td>Live and complete. The voyage is finished.</td><td>--</td></tr>
+                        <tr><td><strong>Scuttled</strong></td><td>Investigated and deliberately abandoned. A record of good judgment.</td><td>Harbourmaster decides</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>The human decision points sandwich the AI execution stages. Recon runs autonomously, then the harbourmaster evaluates. Construction runs autonomously, then the harbourmaster evaluates. The pattern is: AI executes, human validates. All the way through.</p>
+
+            <h2>The Glossary</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>Naval Term</th><th>What It Means</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Shipyard</strong></td><td>The entire autonomous build system</td></tr>
+                        <tr><td><strong>Harbourmaster</strong></td><td>The human who oversees the fleet — product vision, quality judgment, architectural taste</td></tr>
+                        <tr><td><strong>Voyage</strong></td><td>The journey from idea to deployed product</td></tr>
+                        <tr><td><strong>Fleet board</strong></td><td>The visual kanban showing all ships and their current stage</td></tr>
+                        <tr><td><strong>Ship</strong></td><td>A product moving through the voyage</td></tr>
+                        <tr><td><strong>Fleet card</strong></td><td>A ship's card on the fleet board, showing progress, priority, cost, and actions</td></tr>
+                        <tr><td><strong>Harbour</strong></td><td>Where ideas wait before investigation</td></tr>
+                        <tr><td><strong>Recon</strong></td><td>Market research and feasibility investigation</td></tr>
+                        <tr><td><strong>Charted</strong></td><td>Recon complete, awaiting the harbourmaster's decision</td></tr>
+                        <tr><td><strong>Under Construction</strong></td><td>Active development by the build crew</td></tr>
+                        <tr><td><strong>Sea Trials</strong></td><td>Testing and quality evaluation by the harbourmaster</td></tr>
+                        <tr><td><strong>Launched</strong></td><td>Release preparation and deployment</td></tr>
+                        <tr><td><strong>Refit</strong></td><td>Post-launch pattern extraction back into shared stores</td></tr>
+                        <tr><td><strong>Deployed</strong></td><td>Live and complete</td></tr>
+                        <tr><td><strong>Scuttled</strong></td><td>Idea investigated and deliberately abandoned</td></tr>
+                        <tr><td><strong>Scout</strong></td><td>The recon agent — conducts market research</td></tr>
+                        <tr><td><strong>Build crew</strong></td><td>The development agent — implements the product</td></tr>
+                        <tr><td><strong>Launch crew</strong></td><td>The release agent — prepares store metadata and release materials</td></tr>
+                        <tr><td><strong>Standing orders</strong></td><td>The standards documents that govern how every ship is built</td></tr>
+                        <tr><td><strong>Flagship</strong></td><td>The reference implementation — the first ship, built by hand, that all others follow</td></tr>
+                        <tr><td><strong>Stores</strong></td><td>Shared component libraries used across all ships</td></tr>
+                        <tr><td><strong>Recon brief</strong></td><td>The market research report produced by the scout</td></tr>
+                        <tr><td><strong>Dry dock</strong></td><td>Where a ship returns for repairs after failing sea trials</td></tr>
+                        <tr><td><strong>Wake</strong></td><td>The phase history dots on a fleet card — the trail showing where a ship has been</td></tr>
+                        <tr><td><strong>Crew aboard</strong></td><td>An agent is currently running on this ship</td></tr>
+                        <tr><td><strong>Recall crew</strong></td><td>Stop the running agent</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>One harbourmaster. An entire fleet. Days, not months.</p>
+        </article>
+
+        <hr>
+        <p class="open-source-credit">The fleet board and pipeline orchestration described in this article is built on <a href="https://github.com/alexhopewell-ai/beads-fleet">beads-fleet</a> (MIT licensed). Special thanks to <a href="https://github.com/steveyegge">Steve Yegge</a> for creating <a href="https://github.com/steveyegge/beads">Beads</a>, the git-backed issue tracker at the foundation of this workflow.</p>
+        <p class="bio">Alex Hopewell (a pseudonym) is an indie software developer building autonomous delivery systems. She writes about the practical reality of AI-assisted development.</p>
+
+        <div class="site-footer">
+            <div class="footer-back"><a href="alexhopewell-site/index.html">Back to alexhopewell.dev</a></div>
+        </div>
+    </div>
 </body>
 </html>
